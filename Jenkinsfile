@@ -86,7 +86,7 @@ pipeline {
 
         stage('Deploy to prod') {
             when {
-                branch 'master'
+                expression {env.GIT_BRANCH == 'origin/master'}
             }
             steps {
                 timeout(time: 5, unit: "MINUTES") {
